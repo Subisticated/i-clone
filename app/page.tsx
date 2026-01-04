@@ -1,103 +1,117 @@
-import Image from "next/image";
+import { InstagramLogo } from "@/components/instagram-logo"
+import { FacebookIcon } from "@/components/facebook-icon"
+import LoginForm from "@/components/login-form"
 
-export default function Home() {
+export default function LoginPage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen flex flex-col items-center justify-center bg-black px-4 py-8">
+      <div className="w-full max-w-[350px] flex flex-col gap-3">
+        {/* Main Login Card */}
+        <div className="border border-[#262626] bg-black px-10 py-10 flex flex-col items-center">
+          {/* Instagram Logo */}
+          <div className="mb-10">
+            <img src="/Adobe Express - file.png" alt="Instagram Logo" className="h-14 mx-auto" />
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Login Form */}
+          <LoginForm />
+
+          {/* OR Divider */}
+          <div className="w-full flex items-center gap-4 my-5">
+            <div className="flex-1 h-px bg-[#262626]" />
+            <span className="text-[#737373] text-[13px] font-semibold">OR</span>
+            <div className="flex-1 h-px bg-[#262626]" />
+          </div>
+
+          {/* Facebook Login */}
+          <button
+            type="button"
+            className="flex items-center gap-2 text-[#0095f6] hover:text-[#0095f6]/80 font-semibold text-sm"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+            <FacebookIcon className="text-[#0095f6]" />
+            Log in with Facebook
+          </button>
+
+          {/* Forgot Password */}
+          <a href="#" className="text-[#a8a8a8] text-xs mt-4 hover:text-white">
+            Forgot password?
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+        {/* Sign Up Box */}
+        <div className="border border-[#262626] bg-black px-10 py-6 text-center">
+          <p className="text-sm text-white">
+            {"Don't have an account? "}
+            <a href="#" className="text-[#0095f6] font-semibold hover:text-[#0095f6]/80">
+              Sign up
+            </a>
+          </p>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="w-full max-w-[920px] mt-12 flex flex-col items-center gap-4">
+        <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-[#737373]">
+          <a href="#" className="hover:text-white">
+            Meta
+          </a>
+          <a href="#" className="hover:text-white">
+            About
+          </a>
+          <a href="#" className="hover:text-white">
+            Blog
+          </a>
+          <a href="#" className="hover:text-white">
+            Jobs
+          </a>
+          <a href="#" className="hover:text-white">
+            Help
+          </a>
+          <a href="#" className="hover:text-white">
+            API
+          </a>
+          <a href="#" className="hover:text-white">
+            Privacy
+          </a>
+          <a href="#" className="hover:text-white">
+            Terms
+          </a>
+          <a href="#" className="hover:text-white">
+            Locations
+          </a>
+          <a href="#" className="hover:text-white">
+            Instagram Lite
+          </a>
+          <a href="#" className="hover:text-white">
+            Meta AI
+          </a>
+          <a href="#" className="hover:text-white">
+            Threads
+          </a>
+          <a href="#" className="hover:text-white">
+            Contact Uploading & Non-Users
+          </a>
+          <a href="#" className="hover:text-white">
+            Meta Verified
+          </a>
+        </nav>
+
+        <div className="flex items-center gap-4 text-xs text-[#737373]">
+          <button className="hover:text-white flex items-center gap-1">
+            English
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path
+                d="M3 5l3 3 3-3"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <span>© 2025 Instagram from Meta</span>
+        </div>
       </footer>
-    </div>
-  );
+    </main>
+  )
 }
